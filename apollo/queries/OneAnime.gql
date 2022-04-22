@@ -1,0 +1,10 @@
+query OneAnime{ 
+        Media (isAdult: true) { 
+          id
+          title {
+            romaji
+            english
+            native
+          }
+        }
+      }
