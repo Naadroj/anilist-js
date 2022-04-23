@@ -19,19 +19,18 @@
         <UpcomingNextSeason />
       </div>
     </div>
-    <hr />
+    <br />
     <div class="row">
       <div class="col-12">
         <AllTimePopular />
       </div>
     </div>
-    <hr />
-    <!-- <div class="row">
+    <br />
+    <div class="row">
       <div class="col-12">
         <Top100Anime />
       </div>
-    </div> -->
-    <p>coucou</p>
+    </div>
   </div>
 </template>
 
