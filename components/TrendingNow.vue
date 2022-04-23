@@ -1,10 +1,23 @@
 <template>
   <div>
-    <ul>
-      <li v-for="el in Page.media" :key="el.id">
-        {{ el.title.romaji }}
-      </li>
-    </ul>
+    <h2>TRENDING NOW</h2>
+    <div class="row">
+      <div
+        class="col-12 col-sm-6 col-md-4 col-xl-2"
+        v-for="el in Page.media.slice(0, maxElems)"
+        :key="el.id"
+      >
+        <b-card
+          :img-src="el.coverImage.extraLarge"
+          :img-alt="el.title.romaji"
+          class="mb-2"
+        >
+        </b-card>
+        <span class="media-title">
+          {{ el.title.romaji }}
+        </span>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -13,6 +26,14 @@ import gql from "graphql-tag";
 import TrendingNow from "../apollo/queries/TrendingNow";
 
 export default {
+  data() {
+    return {
+      // myVar: {
+      //   $perPage: 6,
+      // },
+      maxElems: 6,
+    };
+  },
   apollo: {
     Page: {
       query: TrendingNow,
@@ -25,6 +46,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-</style>
