@@ -1,0 +1,28 @@
+query ($page: Int, $perPage: Int, $search: String) {
+  Page(page: $page, perPage: $perPage) {
+    pageInfo {
+      total
+      perPage
+    }
+    media(search: $search, type: ANIME, sort: SCORE_DESC) {
+      id
+      title {
+        romaji
+      }
+      format
+      genres
+      coverImage {
+        extraLarge
+        large
+        medium
+        color
+      }
+      episodes
+      averageScore
+      status
+      season
+      seasonYear
+      popularity
+    }
+  }
+}

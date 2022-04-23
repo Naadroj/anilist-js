@@ -10,12 +10,12 @@
 
 <script>
 import gql from "graphql-tag";
-import SomeAnimes from "../apollo/queries/SomeAnimes";
+import TrendingNow from "../apollo/queries/TrendingNow";
 
 export default {
   apollo: {
     Page: {
-      query: SomeAnimes,
+      query: TrendingNow,
       variables() {
         return {
           myVar: this.myVar,

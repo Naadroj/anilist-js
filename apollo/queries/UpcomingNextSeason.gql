@@ -1,0 +1,30 @@
+query ($page: Int, $perPage: Int, $search: String) {
+  Page(page: $page, perPage: $perPage) {
+    pageInfo {
+      total
+      perPage
+    }
+    media(search: $search, type: ANIME, sort: POPULARITY_DESC, seasonYear: $year, season: $season) {
+      id
+      title {
+        romaji
+      }
+      format
+      genres
+      coverImage {
+        extraLarge
+        large
+        medium
+        color
+      }
+      studios {
+        nodes {
+          name
+          isAnimationStudio
+        }
+      }
+      episodes
+      averageScore
+    }
+  }
+}
