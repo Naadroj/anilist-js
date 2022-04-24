@@ -31,7 +31,7 @@
                   </div>
                 </div>
                 <div class="col-2 stats">
-                  <!-- <FontAwesomeIcon icon="fa-solid fa-face-smile" /> -->
+                  <!-- TODO: Add real and dynamic smiley -->
                   <span class="smiley">:)</span>
                   <div>
                     <span class="score"> {{ el.averageScore }}% </span>

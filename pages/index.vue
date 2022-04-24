@@ -1,5 +1,10 @@
 <template>
   <div class="container">
+    <show-at breakpoint="mediumAndBelow"> SMALL NAVBAR </show-at>
+    <hide-at breakpoint="mediumAndBelow"> BIG NAVBAR </hide-at>
+    <br />
+    <br />
+    <FilterBar />
     <br />
     <br />
     <div class="row">
@@ -35,7 +40,10 @@
 </template>
 
 <script>
-export default {};
+import { showAt, hideAt } from "vue-breakpoints";
+export default {
+  components: { hideAt, showAt },
+};
 </script>
 
 <style>
