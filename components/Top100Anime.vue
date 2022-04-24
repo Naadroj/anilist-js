@@ -34,25 +34,27 @@
                   <!-- <FontAwesomeIcon icon="fa-solid fa-face-smile" /> -->
                   <span class="smiley">:)</span>
                   <div>
-                    <span> {{ el.averageScore }}% </span>
+                    <span class="score"> {{ el.averageScore }}% </span>
                     <br />
-                    <span> {{ el.popularity }} users </span>
+                    <span class="popularity"> {{ el.popularity }} users </span>
                   </div>
                 </div>
                 <div class="col-2">
-                  <span class="to-lowercase">{{ el.format }}</span>
+                  <span class="to-lowercase format">{{ el.format }}</span>
                   <br />
-                  <span v-if="el.format == 'MOVIE'">{{
+                  <span class="duration" v-if="el.format == 'MOVIE'">{{
                     timeConvert(el.duration)
                   }}</span>
-                  <span v-else> {{ el.episodes }} episodes </span>
+                  <span class="duration" v-else>
+                    {{ el.episodes }} episodes
+                  </span>
                 </div>
                 <div class="col-2">
-                  <span class="to-lowercase"
+                  <span class="to-lowercase season-year"
                     >{{ el.season }} {{ el.seasonYear }}</span
                   >
                   <br />
-                  <span class="to-lowercase">{{ el.status }}</span>
+                  <span class="to-lowercase status">{{ el.status }}</span>
                 </div>
               </div>
             </b-card>
@@ -64,9 +66,6 @@
           class="mb-2"
         >
         </b-card> -->
-        <span class="media-title">
-          {{ el.title.romaji }}
-        </span>
       </div>
     </div>
   </div>
@@ -135,10 +134,38 @@ export default {
 
 .card-img-left {
   max-width: 3.5vw;
+  height: 100%;
 }
 
 .stats {
   display: flex;
+}
+
+.duration {
+  font-size: 0.8rem;
+}
+
+.format {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.status {
+  font-size: 0.8rem;
+}
+
+.score {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.popularity {
+  font-size: 0.8rem;
+}
+
+.season-year {
+  font-size: 0.9rem;
+  font-weight: bold;
 }
 
 .smiley {
