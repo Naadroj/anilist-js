@@ -1,10 +1,9 @@
 <template>
   <div>
-    <h2>TRENDING NOW</h2>
     <div class="row">
       <div
         class="col-12 col-sm-6 col-md-4 col-xl-2"
-        v-for="el in Page.media.slice(0, maxElems)"
+        v-for="el in Page.media"
         :key="el.id"
       >
         <b-card
@@ -18,34 +17,43 @@
         </span>
       </div>
     </div>
+    <!-- {{ Page }} -->
   </div>
 </template>
 
 <script>
 import gql from "graphql-tag";
-import TrendingNow from "../apollo/queries/TrendingNow";
+import AnimeByGenre from "../apollo/queries/AnimeByGenre";
 
 export default {
-  data() {
-    return {
-      // myVar: {
-      //   $perPage: 6,
-      // },
-      maxElems: 6,
-    };
+  props: {
+    genre: String,
   },
-  // mounted() {
-  //   console.log(this.pagePage);
-  // },
   apollo: {
     Page: {
-      query: TrendingNow,
+      query: AnimeByGenre,
       variables() {
         return {
-          myVar: this.myVar,
+          genre: this.genre,
+          perPage: 20,
         };
       },
     },
   },
+  data() {
+    return {
+      Page: {
+        media: [],
+      },
+    };
+  },
+  methods: {
+    typeOfVar: function (variable) {
+      return Object.prototype.toString.apply(variable);
+    },
+  },
 };
 </script>
+
+<style scoped>
+</style>
