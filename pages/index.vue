@@ -150,4 +150,13 @@ h2 {
   height: 2rem !important;
   font-size: 0.8rem !important;
 }
+
+a{
+  color: #516170 !important;
+}
+
+a:hover{
+  text-decoration: none !important;
+  color: #EF5D5D !important;
+}
 </style>

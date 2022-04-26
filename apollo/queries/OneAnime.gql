@@ -1,0 +1,52 @@
+query ($id: Int) {
+  Media(type: ANIME, id: $id) {
+    id
+    title {
+      romaji
+      english
+      native
+    }
+    format
+    genres
+    coverImage {
+      extraLarge
+      large
+      medium
+      color
+    }
+    bannerImage
+    studios {
+      nodes {
+        name
+        isAnimationStudio
+      }
+    }
+    nextAiringEpisode {
+      episode
+      timeUntilAiring
+    }
+    episodes
+    status
+    duration
+    startDate {
+      year
+      month
+      day
+    }
+    endDate {
+      year
+      month
+      day
+    }
+    season
+    seasonYear
+    averageScore
+    meanScore
+    popularity
+    favourites
+    description(asHtml: false)
+    source
+    hashtag
+    synonyms
+  }
+}

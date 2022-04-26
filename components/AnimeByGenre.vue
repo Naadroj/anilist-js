@@ -18,10 +18,10 @@
       </div>
     </div>
     <div class="actions">
-      <button v-if="showMoreEnabled" @click="showMore">Show more</button>
+      <button v-if="showMoreEnabled" @click="logger">Show more</button>
     </div>
 
-    <!-- {{ Page }} -->
+<!--     {{ Page }} -->
   </div>
 </template>
 
@@ -29,6 +29,7 @@
 import gql from "graphql-tag";
 import AnimeByGenre from "../apollo/queries/AnimeByGenre";
 
+// ! Need to store fetched datas in an array and push new datas in this array everytime we showMore()
 export default {
   data() {
     return {
@@ -36,8 +37,9 @@ export default {
         media: [],
       },
       page: 0,
-      pageSize: 12,
       showMoreEnabled: true,
+      pageSize : 24,
+      toAdd : 24
     };
   },
   props: {
@@ -50,27 +52,31 @@ export default {
         return {
           genre: this.genre,
           page: this.page,
-          perPage: this.pageSize,
+          perPage: 120,
         };
       },
     },
   },
   methods: {
     showMore() {
-      this.page++;
-      console.log(this.page);
+      // this.page++;
+      this.pageSize += this.toAdd
       // Fetch more data and transform the original result
+      console.log(this.pageSize)
 
       this.$apollo.queries.Page.fetchMore({
         // New variables
-        variables: {
-          page: this.page,
+        variables() {
+          return {
+            // page: this.page,
+            perPage: this.pageSize,
+          }
         },
         // Transform the previous result with new data
         updateQuery: (previousResult, { fetchMoreResult }) => {
           const newMedias = fetchMoreResult.Page.media;
           const newPageInfos = fetchMoreResult.Page.pageInfo;
-          const hasMore = fetchMoreResult.Page.hasMore;
+          const hasMore = fetchMoreResult.Page.pageInfo.hasNextPage;
 
           this.showMoreEnabled = hasMore;
 
@@ -78,14 +84,16 @@ export default {
             Page: {
               __typename: previousResult.Page.__typename,
               // Merging the tag list
-              media: [...previousResult.Page.media, ...newMedias],
               pageInfo: [...previousResult.Page.pageInfo, ...newPageInfos],
-              hasMore,
+              media: [...previousResult.Page.media, ...newMedias],
             },
           };
         },
       });
     },
+    logger(){
+      console.log(this.Page)
+    }
   },
 };
 </script>

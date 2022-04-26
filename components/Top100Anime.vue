@@ -9,6 +9,7 @@
       >
         <div class="row">
           <div class="col-1">#{{ index + 1 }}</div>
+          
           <div class="col-11 top-100">
             <b-card
               :img-src="el.coverImage.large"
@@ -19,7 +20,9 @@
             >
               <div class="row top-100-container">
                 <div class="col-6">
-                  <span>{{ el.title.romaji }}</span>
+                  <NuxtLink :to="el.id.toString()">
+                    <span>{{ el.title.romaji }}</span>
+                  </NuxtLink>
                   <div>
                     <span
                       v-for="(tag, index) in el.genres.slice(0, maxTags)"

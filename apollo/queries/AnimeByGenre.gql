@@ -3,6 +3,7 @@ query ($page: Int, $perPage: Int, $search: String, $genre: String) {
     pageInfo {
       total
       perPage
+      hasNextPage
     }
     media(search: $search, type: ANIME, sort: POPULARITY_DESC, genre: $genre) {
       id

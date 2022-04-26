@@ -7,6 +7,7 @@
         v-for="el in Page.media.slice(0, maxElems)"
         :key="el.id"
       >
+        <NuxtLink :to="el.id.toString()">
         <b-card
           :img-src="el.coverImage.extraLarge"
           :img-alt="el.title.romaji"
@@ -16,6 +17,7 @@
         <span class="media-title">
           {{ el.title.romaji }}
         </span>
+        </NuxtLink>
       </div>
     </div>
   </div>
