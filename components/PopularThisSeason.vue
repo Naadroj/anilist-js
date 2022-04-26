@@ -47,10 +47,10 @@ export default {
   apollo: {
     Page: {
       query: PopularThisSeason,
-      variables: {
-        // season: this.MediaSeason,
-        year: 2022,
-        // myVar: this.myVar,
+      variables() {
+        return {
+          year: new Date().getFullYear(),
+        };
       },
     },
   },

@@ -45,11 +45,6 @@ export default {
   apollo: {
     Page: {
       query: TrendingNow,
-      variables() {
-        return {
-          myVar: this.myVar,
-        };
-      },
     },
   },
 };
