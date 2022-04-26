@@ -1,48 +1,50 @@
 <template>
-    <div class="page-content">
-        <div class="banner" :style="getUrl(Media.bannerImage)">
-        </div>
-        <div class="header-wrap">
-            <div class="row">
-                <div class="col-1"></div>
-                <div class="col-2">
-                    <img :src="Media.coverImage.large" class="cover"> 
+    <div id="__layout">
+        <Navbar/>
+        <div class="page-content">
+            <div class="banner" :style="getUrl(Media.bannerImage)">
+            </div>
+            <div class="header-wrap">
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col-2">
+                        <img :src="Media.coverImage.large" class="cover"> 
+                    </div>
+                    <div class="col-7 title-and-desc">
+                        <h1>{{Media.title.romaji}}</h1>
+                        <p>{{Media.description}}</p>
+                    </div>
                 </div>
-                <div class="col-7 title-and-desc">
-                    <h1>{{Media.title.romaji}}</h1>
-                    <p>{{Media.description}}</p>
+                <div class="row justify-content-center infos-options">
+                    <b-form-group v-slot="{ ariaDescribedby }">
+                        <b-form-radio-group
+                            id="infos"
+                            v-model="selectedInfo"
+                            :options="infosOptions"
+                            :aria-describedby="ariaDescribedby"
+                            name="radio-options"
+                        ></b-form-radio-group>
+                    </b-form-group>
                 </div>
             </div>
-            <div class="row justify-content-center infos-options">
-                <b-form-group v-slot="{ ariaDescribedby }">
-                    <b-form-radio-group
-                        id="infos"
-                        v-model="selectedInfo"
-                        :options="infosOptions"
-                        :aria-describedby="ariaDescribedby"
-                        name="radio-options"
-                    ></b-form-radio-group>
-                </b-form-group>
-            </div>
-        </div>
 
-        <div class="content">
-            <div class="row">
-                <div class="col-1"></div>
-                <div class="col-2">
-                    <SideBar :anime="Media"/>
-                </div>
-                <div class="col-7">
-                    <Overview v-if="selectedInfo == 'overview'" :anime="Media"/>
-                    <Characters v-else-if="selectedInfo == 'characters'" :anime="Media"/>
-                    <Staff v-else-if="selectedInfo == 'staff'" :anime="Media"/>
-                    <Stats v-else-if="selectedInfo == 'stats'" :anime="Media"/>
-                    <Social v-else :anime="Media"/>
+            <div class="content">
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col-2">
+                        <SideBar :anime="Media"/>
+                    </div>
+                    <div class="col-7">
+                        <Overview v-if="selectedInfo == 'overview'" :anime="Media"/>
+                        <Characters v-else-if="selectedInfo == 'characters'" :anime="Media"/>
+                        <Staff v-else-if="selectedInfo == 'staff'" :anime="Media"/>
+                        <Stats v-else-if="selectedInfo == 'stats'" :anime="Media"/>
+                        <Social v-else :anime="Media"/>
+                    </div>
                 </div>
             </div>
+
         </div>
-        
-        
     </div>
 </template>
 
@@ -58,6 +60,9 @@ export default {
         Media: {
             title: [],
             description: '',
+            coverImage: {
+                large: ''
+            }
         },
         selectedInfo: 'overview',
         infosOptions: [
@@ -91,8 +96,7 @@ export default {
         background-repeat: no-repeat;
         background-size: cover;
         height: 50vh;
-        width: auto;
-        margin-top: -58px;`;
+        width: auto;`;
     },
     logger: function(el) {
         console.log(el);

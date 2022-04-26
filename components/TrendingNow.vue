@@ -30,6 +30,9 @@ import TrendingNow from "../apollo/queries/TrendingNow";
 export default {
   data() {
     return {
+      Page: {
+        media: [],
+      },
       // myVar: {
       //   $perPage: 6,
       // },

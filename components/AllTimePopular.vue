@@ -30,6 +30,9 @@ import AllTimePopular from "../apollo/queries/AllTimePopular";
 export default {
   data() {
     return {
+      Page: {
+        media: [],
+      },
       // MediaSeason: {
       //   WINTER: "WINTER",
       //   SPRING: "SPRING",

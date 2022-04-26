@@ -30,6 +30,9 @@ import UpcomingNextSeason from "../apollo/queries/UpcomingNextSeason";
 export default {
   data() {
     return {
+      Page: {
+        media: [],
+      },
       MediaSeason: {
         WINTER: "WINTER",
         SPRING: "SPRING",

@@ -80,6 +80,9 @@ import Top100Anime from "../apollo/queries/Top100Anime";
 export default {
   data() {
     return {
+      Page: {
+        media: [],
+      },
       maxElems: 10,
       maxTags: 5,
     };

@@ -30,6 +30,9 @@ import PopularThisSeason from "../apollo/queries/PopularThisSeason";
 export default {
   data() {
     return {
+      Page: {
+        media: [],
+      },
       MediaSeason: {
         WINTER: "WINTER",
         SPRING: "SPRING",
