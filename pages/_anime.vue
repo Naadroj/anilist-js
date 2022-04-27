@@ -11,7 +11,6 @@
           </div>
           <div class="col-7 title-and-desc">
             <h1>{{ Media.title.romaji }}</h1>
-            <!-- <p>{{Media.description}}</p> -->
             <p ref="description"></p>
           </div>
         </div>
@@ -39,7 +38,7 @@
             <Characters v-else-if="selectedInfo == 'characters'" />
             <Staff v-else-if="selectedInfo == 'staff'" />
             <Stats v-else-if="selectedInfo == 'stats'" />
-            <Social v-else :anime="Media" />
+            <Social v-else />
           </div>
         </div>
       </div>
@@ -61,7 +60,9 @@ export default {
         coverImage: {
           large: "",
         },
+        bannerImage: "",
       },
+      media: {},
       selectedInfo: "overview",
       infosOptions: [
         { text: "Overview", value: "overview" },
@@ -70,22 +71,38 @@ export default {
         { text: "Stats", value: "stats" },
         { text: "Social", value: "social" },
       ],
+      setDescriptionBool: 0,
     };
   },
   apollo: {
     Media: {
       query: OneAnime,
-      fetchPolicy: "cache-only",
       variables() {
         return {
           id: this.$route.params.anime,
         };
       },
+      // result({ data, loading, networkStatus }) {
+      //   this.media = data.Media;
+
+      //   // console.log(data.Media);
+      // },
+      // watchLoading(isLoading, countModifier) {
+      //   // isLoading is a boolean
+      //   // countModifier is either 1 or -1
+      //   this.setDescriptionBool = countModifier;
+      // },
+      // pollInterval: 10,
     },
   },
   mounted: function () {
     this.$refs.description.innerHTML = this.Media.description;
   },
+  // watch: {
+  //   setDescriptionBool(val) {
+  //     console.log(val);
+  //   },
+  // },
   methods: {
     getUrl: function (el) {
       return `background-image: url(${el}); 
