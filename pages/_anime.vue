@@ -13,7 +13,7 @@
                     <div class="col-7 title-and-desc">
                         <h1>{{Media.title.romaji}}</h1>
                         <!-- <p>{{Media.description}}</p> -->
-                        <p>{{Media.description}}</p>
+                        <p ref="description"></p>
                     </div>
                 </div>
                 <div class="row justify-content-center infos-options">
@@ -63,7 +63,7 @@ export default {
             description: '',
             coverImage: {
                 large: ''
-            }
+            },
         },
         selectedInfo: 'overview',
         infosOptions: [
@@ -78,6 +78,7 @@ export default {
     apollo: {
         Media: {
             query: OneAnime,
+            fetchPolicy: 'cache-only',
             variables() {
                 return {
                     id: this.$route.params.anime,
@@ -85,13 +86,8 @@ export default {
             },
         },
     },
-    computed: {
-        parseString: function (string) {
-            return parse(string);
-                }
-    },
-    created: function () {
-        let parsedDesc = parse(this.Media.description)
+    mounted: function () {
+        this.$refs.description.innerHTML = this.Media.description;
     },
     methods: {
         getUrl: function (el) {
