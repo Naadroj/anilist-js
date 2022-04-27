@@ -62,7 +62,6 @@ export default {
       // this.page++;
       this.pageSize += this.toAdd
       // Fetch more data and transform the original result
-      console.log(this.pageSize)
 
       this.$apollo.queries.Page.fetchMore({
         // New variables
@@ -91,9 +90,6 @@ export default {
         },
       });
     },
-    logger(){
-      console.log(this.Page)
-    }
   },
 };
 </script>

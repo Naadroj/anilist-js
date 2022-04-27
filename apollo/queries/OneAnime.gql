@@ -44,7 +44,7 @@ query ($id: Int) {
     meanScore
     popularity
     favourites
-    description(asHtml: false)
+    description(asHtml: true)
     source
     hashtag
     synonyms

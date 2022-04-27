@@ -49,10 +49,6 @@ export default {
             },
         },
     },
-    created(){
-        console.log(this.Media);;
-        
-    },
     methods: {
         getUrl: function (el) {
             return `background-image: url(${el});`;

@@ -42,9 +42,6 @@ export default {
       maxElems: 6,
     };
   },
-  // mounted() {
-  //   console.log(this.pagePage);
-  // },
   apollo: {
     Page: {
       query: TrendingNow,
