@@ -34,12 +34,12 @@
                                 <br>
                                 <span class="role">{{character.role}}</span>
                             </div>
-                            <div class="col-4" v-for="actor in character.voiceActors" :key="actor.id">
+                            <div class="col-4" v-for="actor in character.voiceActors.slice(0, 1)" :key="actor.id">
                                 <span class="name">{{actor.name.full}}</span>
                                 <br>
                                 <span class="language">{{actor.languageV2}}</span>
                             </div>
-                            <div class="col-2 character-image" :style="getUrl(actor.image.medium)"  v-for="actor in character.voiceActors" :key="actor.id"></div>
+                            <div class="col-2 character-image" :style="getUrl(actor.image.medium)"  v-for="actor in character.voiceActors.slice(0, 1)" :key="actor.id"></div>
                         </div>
                     </div>
                 </div>
