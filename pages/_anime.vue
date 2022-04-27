@@ -12,6 +12,7 @@
                     </div>
                     <div class="col-7 title-and-desc">
                         <h1>{{Media.title.romaji}}</h1>
+                        <!-- <p>{{Media.description}}</p> -->
                         <p>{{Media.description}}</p>
                     </div>
                 </div>
@@ -74,10 +75,6 @@ export default {
         ]
     };
   },
-    created(){
-        console.log(this.Media.description);;
-        
-    },
     apollo: {
         Media: {
             query: OneAnime,
@@ -88,25 +85,25 @@ export default {
             },
         },
     },
+    computed: {
+        parseString: function (string) {
+            return parse(string);
+                }
+    },
+    created: function () {
+        let parsedDesc = parse(this.Media.description)
+    },
     methods: {
-    getUrl: function (el) {
-      return `background-image: url(${el}); 
-        height:40vh;
-        background-position: 50% 35%;
-        background-repeat: no-repeat;
-        background-size: cover;
-        height: 50vh;
-        width: auto;`;
+        getUrl: function (el) {
+        return `background-image: url(${el}); 
+            height:40vh;
+            background-position: 50% 35%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 50vh;
+            width: auto;`;
+        },
     },
-    logger: function(el) {
-        console.log(el);
-    },
-    /* stringToHtml: function(string) {
-        let doc = parse(string);
-
-        console.log(doc.body);
-    } */
-  },
 }
 </script>
 
