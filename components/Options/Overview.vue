@@ -74,9 +74,13 @@ export default {
     return {
       Media: {
         relations: {
-            nodes: {
-                
-            }
+            edges: [],
+        },
+        characters: {
+            edges: [],
+        },
+        staff: {
+            edges: [],
         },
       },
     };
