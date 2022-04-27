@@ -9,7 +9,7 @@
       >
         <div class="row">
           <div class="col-1">#{{ index + 1 }}</div>
-          
+
           <div class="col-11 top-100">
             <b-card
               :img-src="el.coverImage.large"
@@ -21,11 +21,11 @@
               <div class="row top-100-container">
                 <div class="col-6">
                   <NuxtLink :to="el.id.toString()">
-                    <span  v-if="el.title.romaji.length <= 35" >
+                    <span v-if="el.title.romaji.length <= 35">
                       {{ el.title.romaji }}
                     </span>
                     <span v-else>
-                      {{ el.title.romaji.slice(0, 35) + '...' }}
+                      {{ el.title.romaji.slice(0, 35) + "..." }}
                     </span>
                   </NuxtLink>
                   <div>
@@ -80,7 +80,6 @@
 </template>
 
 <script>
-import gql from "graphql-tag";
 import Top100Anime from "../apollo/queries/Top100Anime";
 export default {
   data() {

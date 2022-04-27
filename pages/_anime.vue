@@ -47,9 +47,7 @@
 </template>
 
 <script>
-import gql from "graphql-tag";
 import OneAnime from "../apollo/queries/OneAnime";
-import parse from "html-dom-parser";
 
 export default {
   data() {
