@@ -1,9 +1,10 @@
 query ($id: Int) {
-    Media(type: ANIME, id: $id) {
+    Media(id: $id) {
         id
         relations {
             edges {
                 node {
+                    id
                     coverImage {
                         large
                     }

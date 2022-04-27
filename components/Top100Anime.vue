@@ -21,7 +21,12 @@
               <div class="row top-100-container">
                 <div class="col-6">
                   <NuxtLink :to="el.id.toString()">
-                    <span>{{ el.title.romaji }}</span>
+                    <span  v-if="el.title.romaji.length <= 35" >
+                      {{ el.title.romaji }}
+                    </span>
+                    <span v-else>
+                      {{ el.title.romaji.slice(0, 35) + '...' }}
+                    </span>
                   </NuxtLink>
                   <div>
                     <span

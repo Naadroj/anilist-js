@@ -10,7 +10,7 @@
                             <div class="col-4">
                                 <span class="name">{{character.node.name.full}}</span>
                                 <br>
-                                <span class="role">{{character.role}}</span>
+                                <span class="role to-lowercase">{{character.role}}</span>
                             </div>
                             <div class="col-4" v-for="actor in character.voiceActors.slice(0, 1)" :key="actor.id">
                                 <span class="name">{{actor.name.full}}</span>
@@ -62,6 +62,15 @@ export default {
 </script>
 
 <style>
+.to-lowercase {
+  text-transform: lowercase;
+  display: inline-block;
+}
+
+.to-lowercase:first-letter {
+  text-transform: uppercase;
+}
+
 .section-title{
     font-size: 1rem;
     color: #2b333b;

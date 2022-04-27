@@ -11,12 +11,14 @@
                                 </div>
                             </div>
                             <div class="col-9">
-                                <span class="relation-type">{{relation.relationType}}</span>
+                                <span class="relation-type to-lowercase">{{relation.relationType}}</span>
                                 <br>
+                                <NuxtLink :to="relation.node.id.toString()">
                                 <span v-if="relation.node.title.romaji.length > 50" class="relation-title">{{relation.node.title.romaji.slice(0, 50) + '...'}}</span>
                                 <span v-else class="relation-title">{{relation.node.title.romaji}}</span>
+                                </NuxtLink>
                                 <br>
-                                <span class="format-status">{{relation.node.format}} - {{relation.node.status}}</span>
+                                <span class="format-status to-lowercase">{{relation.node.format}} - {{relation.node.status}}</span>
                             </div>
                         </div>
                     </div>
@@ -33,7 +35,7 @@
                             <div class="col-4">
                                 <span class="name">{{character.node.name.full}}</span>
                                 <br>
-                                <span class="role">{{character.role}}</span>
+                                <span class="role to-lowercase">{{character.role}}</span>
                             </div>
                             <div class="col-4" v-for="actor in character.voiceActors.slice(0, 1)" :key="actor.id">
                                 <span class="name">{{actor.name.full}}</span>
@@ -109,6 +111,15 @@ export default {
 </script>
 
 <style>
+.to-lowercase {
+  text-transform: lowercase;
+  display: inline-block;
+}
+
+.to-lowercase:first-letter {
+  text-transform: uppercase;
+}
+
 .section-title{
     font-size: 1rem;
     color: #2b333b;
@@ -139,7 +150,7 @@ export default {
 
 .relation-title{
     font-size: 1rem;
-    color: #2b333b;
+    /* color: #2b333b; */
 }
 
 .format-status{
@@ -196,4 +207,5 @@ export default {
     0 4px 4px rgba(var(--color-shadow-blue), 0.05);
     margin: 3vh 0vh 3vh;
 }
+
 </style>

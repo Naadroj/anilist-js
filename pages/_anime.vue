@@ -36,9 +36,9 @@
                     </div>
                     <div class="col-8">
                         <Overview v-if="selectedInfo == 'overview'"/>
-                        <Characters v-else-if="selectedInfo == 'characters'" :anime="Media"/>
-                        <Staff v-else-if="selectedInfo == 'staff'" :anime="Media"/>
-                        <Stats v-else-if="selectedInfo == 'stats'" :anime="Media"/>
+                        <Characters v-else-if="selectedInfo == 'characters'"/>
+                        <Staff v-else-if="selectedInfo == 'staff'"/>
+                        <Stats v-else-if="selectedInfo == 'stats'"/>
                         <Social v-else :anime="Media"/>
                     </div>
                 </div>
@@ -110,7 +110,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 @import url("https://fonts.googleapis.com/css2?family=Overpass:wght@100;200;700&display=swap");
 
 body {
@@ -158,5 +158,14 @@ h1 {
 .content{
     padding-top: 4vh;
     background-color:#EDF1F5;
+}
+
+a{
+  color: #516170 !important;
+}
+
+a:hover{
+  text-decoration: none !important;
+  color: #EF5D5D !important;
 }
 </style>

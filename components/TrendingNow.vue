@@ -14,8 +14,11 @@
           class="mb-2"
         >
         </b-card>
-        <span class="media-title">
+        <span  v-if="el.title.romaji.length <= 35" class="media-title">
           {{ el.title.romaji }}
+        </span>
+        <span v-else class="media-title">
+          {{ el.title.romaji.slice(0, 35) + '...' }}
         </span>
         </NuxtLink>
       </div>
