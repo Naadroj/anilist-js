@@ -1,8 +1,8 @@
 <template>
   <div id="__layout">
-    <show-at breakpoint="mediumAndBelow"><HomeButton/></show-at>
-    <hide-at breakpoint="mediumAndBelow"><Navbar/></hide-at>
-    <div class="container">      
+    <show-at breakpoint="mediumAndBelow"><HomeButton /></show-at>
+    <hide-at breakpoint="mediumAndBelow"><Navbar /></hide-at>
+    <div class="container">
       <br />
       <br />
       <div class="row">
@@ -109,8 +109,14 @@ export default {
         { value: "Music", text: "Music" },
       ],
       fakeOptions: [{ value: null, text: "Any" }],
+      renderComponent: true,
     };
   },
+  // watch: {
+  //   selectedGenre(val) {
+  //     console.log(val);
+  //   },
+  // },
 };
 </script>
 
@@ -123,9 +129,9 @@ body {
   color: #26343f;
 }
 
-.row{
-    margin-right: 0px !important;
-    margin-left: 0px !important;
+.row {
+  margin-right: 0px !important;
+  margin-left: 0px !important;
 }
 
 h2 {
@@ -155,12 +161,12 @@ h2 {
   font-size: 0.8rem !important;
 }
 
-a{
+a {
   color: #516170 !important;
 }
 
-a:hover{
+a:hover {
   text-decoration: none !important;
-  color: #EF5D5D !important;
+  color: #ef5d5d !important;
 }
 </style>
