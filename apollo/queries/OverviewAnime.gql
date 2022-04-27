@@ -1,0 +1,61 @@
+query ($id: Int) {
+    Media(type: ANIME, id: $id) {
+        id
+        relations {
+            edges {
+                node {
+                    coverImage {
+                        large
+                    }
+                    title{
+                        romaji
+                    }
+                    format
+                    status
+                }
+                relationType
+            }
+        }
+        characters(sort: ROLE) {
+            edges {
+                id
+                node {
+                    image {
+                        large
+                        medium
+                    }
+                    name {
+                        full
+                    }
+                }
+                voiceActors(language: JAPANESE) {
+                    id
+                    name {
+                        full
+                    }
+                    languageV2
+                    image {
+                        large
+                        medium
+                    }
+                }
+                role
+            }
+        }
+        staff {
+            edges {
+                id
+                role
+                node {
+                    name {
+                        full
+                    }
+                    image {
+                        large
+                        medium
+                    }
+                }
+            }
+        }
+    }
+}

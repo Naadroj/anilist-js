@@ -137,10 +137,47 @@ export default {
             let date = new Date(`${y}-${m}-${d}`)
             let options = { month: 'long'};
             let year = date.getFullYear()
-            let month = new Intl.DateTimeFormat('en-US', options).format(date)
-            let slicedMonth = month.slice(0,3)
+            switch (date.getMonth()) {
+                case 1:
+                    var month = 'Jan';
+                    break;
+                case 2:
+                    var month = 'Mar';
+                    break;
+                case 3:
+                    var month = 'Feb';
+                    break;
+                case 4:
+                    var month = 'Apr';
+                    break;
+                case 5:
+                    var month = 'May';
+                    break;
+                case 6:
+                    var month = 'Jun';
+                    break;
+                case 7:
+                    var month = 'Jul';
+                    break;
+                case 8:
+                    var month = 'Aug';
+                    break;
+                case 9:
+                    var month = 'Sep';
+                    break;
+                case 10:
+                    var month = 'Oct';
+                    break;
+                case 11:
+                    var month = 'Nov';
+                    break;
+                case 12:
+                    var month = 'Dec';
+                    break;
+                
+            }
             let day = date.getDay()
-            let formatedDate = `${slicedMonth} ${day}, ${year}`
+            let formatedDate = `${month} ${day}, ${year}`
             return formatedDate;
         }
     }

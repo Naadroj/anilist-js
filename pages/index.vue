@@ -123,6 +123,11 @@ body {
   color: #26343f;
 }
 
+.row{
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+
 h2 {
   font-size: 1rem;
   font-weight: 700;

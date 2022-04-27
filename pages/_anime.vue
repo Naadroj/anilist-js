@@ -34,8 +34,8 @@
                     <div class="col-2">
                         <SideBar :anime="Media"/>
                     </div>
-                    <div class="col-7">
-                        <Overview v-if="selectedInfo == 'overview'" :anime="Media"/>
+                    <div class="col-8">
+                        <Overview v-if="selectedInfo == 'overview'"/>
                         <Characters v-else-if="selectedInfo == 'characters'" :anime="Media"/>
                         <Staff v-else-if="selectedInfo == 'staff'" :anime="Media"/>
                         <Stats v-else-if="selectedInfo == 'stats'" :anime="Media"/>
