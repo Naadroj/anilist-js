@@ -13,7 +13,8 @@
                             <div class="col-9">
                                 <span class="relation-type">{{relation.relationType}}</span>
                                 <br>
-                                <span class="relation-title">{{relation.node.title.romaji}}</span>
+                                <span v-if="relation.node.title.romaji.length > 50" class="relation-title">{{relation.node.title.romaji.slice(0, 50) + '...'}}</span>
+                                <span v-else class="relation-title">{{relation.node.title.romaji}}</span>
                                 <br>
                                 <span class="format-status">{{relation.node.format}} - {{relation.node.status}}</span>
                             </div>

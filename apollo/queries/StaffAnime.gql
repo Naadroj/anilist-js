@@ -1,0 +1,20 @@
+query ($id: Int) {
+    Media(type: ANIME, id: $id) {
+        id
+        staff {
+            edges {
+                id
+                role
+                node {
+                    name {
+                        full
+                    }
+                    image {
+                        large
+                        medium
+                    }
+                }
+            }
+        }
+    }
+}

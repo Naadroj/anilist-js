@@ -1,10 +1,10 @@
 <template>
     <div class="informations">
-        <div class="info-section">
+       <div class="info-section">
             <span class="section-title">Characters</span>
             <div class="section-content">
                 <div class="row justify-content-between">
-                    <div class="col-5 char-card" v-for="(character, index) in Media.characters.edges.slice(0, 6)" :key="index">
+                    <div class="col-5 char-card" v-for="(character, index) in Media.characters.edges" :key="index">
                         <div class="row">
                             <div class="col-2 character-image" :style="getUrl(character.node.image.large)"></div>
                             <div class="col-4">
@@ -12,12 +12,12 @@
                                 <br>
                                 <span class="role">{{character.role}}</span>
                             </div>
-                            <div class="col-4" v-for="actor in character.voiceActors" :key="actor.id">
+                            <div class="col-4" v-for="actor in character.voiceActors.slice(0, 1)" :key="actor.id">
                                 <span class="name">{{actor.name.full}}</span>
                                 <br>
                                 <span class="language">{{actor.languageV2}}</span>
                             </div>
-                            <div class="col-2 character-image" :style="getUrl(actor.image.medium)"  v-for="actor in character.voiceActors" :key="actor.id"></div>
+                            <div class="col-2 character-image" :style="getUrl(actor.image.medium)"  v-for="actor in character.voiceActors.slice(0, 1)" :key="actor.id"></div>
                         </div>
                     </div>
                 </div>
@@ -66,40 +66,6 @@ export default {
     font-size: 1rem;
     color: #2b333b;
     font-weight: bold;
-}
-
-.relation-card{
-    background-color: #FAFAFA;
-    border-radius: 5px;
-    text-align: left;
-    min-height: 80px;
-    box-shadow: 0 14px 30px rgba(var(--color-shadow-blue), 0.15),
-    0 4px 4px rgba(var(--color-shadow-blue), 0.05);
-    margin: 3vh 0vh 3vh;
-}
-
-.relation-image{
-    height: 18vh;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 50%;
-}
-
-.relation-type{
-    font-size: 0.8rem;
-    color: #0072ac;
-}
-
-.relation-title{
-    font-size: 1rem;
-    color: #2b333b;
-}
-
-.format-status{
-    font-size: 0.8rem;
-    color: #8b9096;
-    position: absolute;
-    bottom: 0px;
 }
 
 .char-card{
