@@ -5,11 +5,11 @@
       <div class="banner" :style="getUrl(Media.bannerImage)"></div>
       <div class="header-wrap">
         <div class="row">
-          <div class="col-1"></div>
-          <div class="col-2">
+          <div class="col-4 col-sm-4 col-md-1 col-xl-1"></div>
+          <div class="col-4 col-sm-4 col-md-2 col-xl-2">
             <img :src="Media.coverImage.large" class="cover" />
           </div>
-          <div class="col-7 title-and-desc">
+          <div class="col-12 col-sm-12 col-md-7 col-xl-7 title-and-desc">
             <h1>{{ Media.title.romaji }}</h1>
             <p ref="description"></p>
           </div>
@@ -29,11 +29,11 @@
 
       <div class="content">
         <div class="row">
-          <div class="col-1"></div>
-          <div class="col-2">
+          <div class="col-0 col-sm-0 col-md-1 col-xl-1"></div>
+          <div class="col-0 col-sm-0 col-md-2 col-xl-2">
             <SideBar :anime="Media" />
           </div>
-          <div class="col-8">
+          <div class="col-12 col-sm-12 col-md-8 col-xl-8">
             <Overview v-if="selectedInfo == 'overview'" />
             <Characters v-else-if="selectedInfo == 'characters'" />
             <Staff v-else-if="selectedInfo == 'staff'" />

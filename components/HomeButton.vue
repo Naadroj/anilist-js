@@ -11,5 +11,6 @@
     border: 1px solid transparent;
     background-color: #2B2D42;
     border-radius: 20px;
+    z-index: 1;
 }
 </style>
