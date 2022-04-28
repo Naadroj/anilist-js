@@ -8,7 +8,7 @@
         :key="el.id"
       >
         <div class="row">
-          <div class="col-1">#{{ index + 1 }}</div>
+          <div class="col-1 top-number">#{{ index + 1 }}</div>
 
           <div class="col-11 top-100">
             <b-card
@@ -30,9 +30,10 @@
                   </NuxtLink>
                   <div>
                     <span
-                      v-for="(tag, index) in el.genres.slice(0, maxTags)"
-                      :key="index"
+                      v-for="(tag, i) in el.genres.slice(0, 4)"
+                      :key="i"
                       class="top-100-tags"
+                      :style="setColor(index)"
                       >{{ tag }}</span
                     >
                     <!-- <span>{{ el.genres }}</span> -->
@@ -106,6 +107,34 @@ export default {
       let rminutes = Math.round(minutes);
       return rhours + " hour(s), " + rminutes + " min(s).";
     },
+    setColor: function(index){
+      const bgColorArray = [
+        '#EF5D5D',
+        '#3480EA',
+        '#E34F85',
+        '#E0D59E',
+        '#E0D59E',
+        '#8A2C0F',
+        '#E34F85',
+        '#FFF280',
+        '#EBB62D',
+        '#6EC8F2'
+      ];
+      const colorArray = [
+        '#FAFAFA',
+        '#FAFAFA',
+        '#FAFAFA',
+        '#9F4A16',
+        '#786C47',
+        '#FAFAFA',
+        '#FAFAFA',
+        '#AF4F18',
+        '#9F4A16',
+        '#3F7FA9'
+      ];
+      let cssRule = `background-color: ${bgColorArray[index]}; color: ${colorArray[index]};`
+      return cssRule;
+    }
   },
 };
 </script>
@@ -118,6 +147,10 @@ export default {
   min-height: 80px;
   box-shadow: 0 14px 30px rgba(var(--color-shadow-blue), 0.15),
     0 4px 4px rgba(var(--color-shadow-blue), 0.05);
+}
+
+.top-number{
+  font-size: 1.5rem;
 }
 
 .top-100-container {
