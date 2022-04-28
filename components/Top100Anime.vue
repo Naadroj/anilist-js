@@ -36,11 +36,9 @@
                       :style="setColor(index)"
                       >{{ tag }}</span
                     >
-                    <!-- <span>{{ el.genres }}</span> -->
                   </div>
                 </div>
                 <div class="col-2 stats">
-                  <!-- TODO: Add real and dynamic smiley -->
                   <span class="smiley">:)</span>
                   <div>
                     <span class="score"> {{ el.averageScore }}% </span>
@@ -69,12 +67,6 @@
             </b-card>
           </div>
         </div>
-        <!-- <b-card
-          :img-src="el.coverImage.extraLarge"
-          :img-alt="el.title.romaji"
-          class="mb-2"
-        >
-        </b-card> -->
       </div>
     </div>
   </div>
@@ -164,9 +156,7 @@ export default {
   padding-right: 0.4rem;
   padding-top: 0.1rem;
   padding-bottom: 0.1rem;
-  /* padding: 0 8px; */
   border: solid 0px transparent;
-  /* border-radius: 0%; */
   background-color: red;
   color: #e5ebf1;
   border-radius: 10px;

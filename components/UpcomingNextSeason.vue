@@ -41,11 +41,10 @@ export default {
         SUMMER: "SUMMER",
         FALL: "FALL",
       },
-      // season: this.MediaSeason.winter,
       maxElems: 6,
     };
   },
-  // TODO: don't hard set year and season
+  // TODO: don't hard set season
   apollo: {
     Page: {
       query: UpcomingNextSeason,

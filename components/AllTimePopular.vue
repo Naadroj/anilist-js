@@ -35,25 +35,12 @@ export default {
       Page: {
         media: [],
       },
-      // MediaSeason: {
-      //   WINTER: "WINTER",
-      //   SPRING: "SPRING",
-      //   SUMMER: "SUMMER",
-      //   FALL: "FALL",
-      // },
-      // season: this.MediaSeason.winter,
       maxElems: 6,
     };
   },
-  // TODO: don't hard set year and season
   apollo: {
     Page: {
       query: AllTimePopular,
-      variables: {
-        // season: this.MediaSeason,
-        // year: 2022,
-        // myVar: this.myVar,
-      },
     },
   },
 };

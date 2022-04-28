@@ -80,27 +80,11 @@ export default {
           id: this.$route.params.anime,
         };
       },
-      // result({ data, loading, networkStatus }) {
-      //   this.media = data.Media;
-
-      //   // console.log(data.Media);
-      // },
-      // watchLoading(isLoading, countModifier) {
-      //   // isLoading is a boolean
-      //   // countModifier is either 1 or -1
-      //   this.setDescriptionBool = countModifier;
-      // },
-      // pollInterval: 10,
     },
   },
   mounted: function () {
     this.$refs.description.innerHTML = this.Media.description;
   },
-  // watch: {
-  //   setDescriptionBool(val) {
-  //     console.log(val);
-  //   },
-  // },
   methods: {
     getUrl: function (el) {
       return `background-image: url(${el}); 

@@ -35,9 +35,6 @@ export default {
       Page: {
         media: [],
       },
-      // myVar: {
-      //   $perPage: 6,
-      // },
       maxElems: 6,
     };
   },

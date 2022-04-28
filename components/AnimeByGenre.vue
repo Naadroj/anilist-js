@@ -80,18 +80,12 @@ export default {
   methods: {
     showMore() {
       this.page++;
-      // this.pageSize += this.toAdd;
-      // Fetch more data and transform the original result
-
       this.$apollo.queries.Page.fetchMore({
-        // New variables
         variables() {
           return {
-            // page: this.page,
             perPage: this.pageSize,
           };
         },
-        // Transform the previous result with new data
         updateQuery: (previousResult, { fetchMoreResult }) => {
           const newMedias = fetchMoreResult.Page.media;
           const newPageInfos = fetchMoreResult.Page.pageInfo;

@@ -112,11 +112,6 @@ export default {
       renderComponent: true,
     };
   },
-  // watch: {
-  //   selectedGenre(val) {
-  //     console.log(val);
-  //   },
-  // },
 };
 </script>
 

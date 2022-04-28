@@ -41,14 +41,13 @@ export default {
         SUMMER: "SUMMER",
         FALL: "FALL",
       },
-      // season: this.MediaSeason.winter,
       maxElems: 6,
     };
   },
-  // TODO: don't hard set year and season
   apollo: {
     Page: {
       query: PopularThisSeason,
+        // TODO: don't hard set season
       variables() {
         return {
           year: new Date().getFullYear(),

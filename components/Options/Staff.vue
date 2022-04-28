@@ -91,10 +91,7 @@ export default {
 
 .role {
   font-size: 0.7rem;
-  color: #2b333b;
-  /* position: absolute;
-    bottom: 0px; */
-}
+  color: #2b333b;}
 
 .staff-card {
   background-color: #fafafa;
